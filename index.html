@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sekolahku Maju</title>
+  <link rel="icon" href="Icon Aplikasi.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <span class="bubble b1"></span>
+    <span class="bubble b2"></span>
+    <span class="bubble b3"></span>
+    <span class="bubble b4"></span>
+    <span class="cloud c1"></span>
+    <span class="cloud c2"></span>
+  </div>
+
+  <button class="user-toggle" id="userToggleBtn" type="button" aria-label="Manajemen user">
+    <span aria-hidden="true">👧</span>
+    <b id="userBadge">Temanku</b>
+  </button>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <button class="icon-btn hidden" id="backBtn" type="button" aria-label="Kembali">‹</button>
+      <div class="brand">
+        <div class="logo-mark"><img src="Logo%20Aplikasi.png" alt="Logo Sekolahku Maju"></div>
+        <div>
+          <p class="eyebrow" data-i18n="tagline">Belajar sambil bermain</p>
+          <h1>Sekolahku Maju</h1>
+        </div>
+      </div>
+      <button class="icon-btn" id="settingsBtn" type="button" aria-label="Pengaturan">⚙</button>
+    </header>
+
+    <section class="screen active" id="homeScreen">
+      <div class="hero">
+        <div class="mascot" aria-hidden="true">
+          <img src="Emoticon.png" alt="">
+        </div>
+        <div class="hero-copy">
+          <img class="hero-logo" src="Logo%20Text.png" alt="Sekolahku Maju">
+          <p class="eyebrow" data-i18n="heroEyebrow">Toddler & Kindergarten</p>
+          <h2 data-i18n="heroTitle">Petualangan belajar warna-warni</h2>
+          <p data-i18n="heroText">Pilih pelajaran, selesaikan 10 soal, lalu naik ke level berikutnya.</p>
+        </div>
+      </div>
+
+      <div class="subject-grid" id="subjectGrid"></div>
+    </section>
+
+    <section class="screen" id="mathCategoryScreen">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="math">Matematika</p>
+          <h2 data-i18n="chooseMathCategory">Pilih Kategori</h2>
+        </div>
+      </div>
+      <div class="math-category-grid" id="mathCategoryGrid"></div>
+    </section>
+
+    <section class="screen" id="generalCategoryScreen">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="general">Umum</p>
+          <h2 data-i18n="chooseGeneralCategory">Pilih Kategori Umum</h2>
+        </div>
+      </div>
+      <div class="general-category-grid" id="generalCategoryGrid"></div>
+    </section>
+
+    <section class="screen" id="languageCategoryScreen">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="language">Bahasa</p>
+          <h2 data-i18n="chooseLanguageCategory">Pilih Kategori</h2>
+        </div>
+      </div>
+      <div class="language-category-grid" id="languageCategoryGrid"></div>
+    </section>
+
+    <section class="screen" id="javaneseCategoryScreen">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="javanese">Bahasa Jawa</p>
+          <h2 data-i18n="chooseJavaneseCategory">Pilih Kategori</h2>
+        </div>
+      </div>
+      <div class="javanese-category-grid" id="javaneseCategoryGrid"></div>
+    </section>
+
+    <section class="screen" id="levelScreen">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" id="selectedSubjectLabel">Matematika</p>
+          <h2 data-i18n="chooseLevel">Pilih Level</h2>
+        </div>
+        <span class="pill" data-i18n="tenQuestions">10 soal tiap level</span>
+      </div>
+      <div class="level-grid" id="levelGrid"></div>
+    </section>
+
+    <section class="screen" id="religionScreen">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="religion">Agama</p>
+          <h2 data-i18n="chooseReligion">Pilih Materi Agama</h2>
+        </div>
+      </div>
+      <div class="religion-grid">
+        <button class="religion-card islam" type="button" data-religion="islam">
+          <span class="image-icon"><img src="Agama%20Islam.png" alt=""></span>
+          <strong>Islam</strong>
+          <small data-i18n="islamHint">Nabi, malaikat, hijaiyah, iqro</small>
+        </button>
+        <button class="religion-card christian" type="button" data-religion="christian">
+          <span class="image-icon"><img src="Agama%20Kristen.png" alt=""></span>
+          <strong>Kristen</strong>
+          <small data-i18n="christianHint">Cerita Alkitab & sekolah minggu</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="screen" id="islamCategoryScreen">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="islam">Islam</p>
+          <h2 data-i18n="chooseIslamCategory">Pilih Kategori Islam</h2>
+        </div>
+      </div>
+      <div class="islam-category-grid" id="islamCategoryGrid"></div>
+    </section>
+
+    <section class="screen" id="gameScreen">
+      <div class="game-panel">
+        <div class="game-status">
+          <div>
+            <p class="eyebrow" id="gameSubject">Matematika</p>
+            <h2 id="gameLevel">Level 1</h2>
+          </div>
+          <div class="score-row">
+            <span id="questionCount">1/10</span>
+            <span id="scoreCount">0 &#9733;</span>
+          </div>
+        </div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+
+        <div class="question-card">
+          <div class="visual-stage" id="visualStage"></div>
+          <h3 id="questionText">Pertanyaan</h3>
+          <div class="answer-grid" id="answerGrid"></div>
+          <p class="feedback" id="feedbackText" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="resultScreen">
+      <div class="result-box">
+        <div class="trophy">🏆</div>
+        <p class="eyebrow" data-i18n="finished">Selesai</p>
+        <h2 id="resultTitle">Hebat!</h2>
+        <p id="resultText">Skor kamu 10 dari 10.</p>
+        <div class="result-actions">
+          <button class="primary-btn" id="nextLevelBtn" type="button" data-i18n="nextLevel">Level Berikutnya</button>
+          <button class="secondary-btn" id="replayBtn" type="button" data-i18n="playAgain">Main Lagi</button>
+          <button class="secondary-btn" id="homeBtn" type="button" data-i18n="home">Beranda</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="settings-dialog" id="settingsDialog">
+    <form method="dialog">
+      <div class="dialog-head">
+        <h2 data-i18n="settings">Pengaturan</h2>
+        <button class="icon-btn" value="close" aria-label="Tutup" type="submit">×</button>
+      </div>
+      <div class="setting-row">
+        <span data-i18n="languageSetting">Bahasa kuis</span>
+        <div class="language-choice-grid" role="group" aria-label="Bahasa kuis">
+          <button class="language-choice" type="button" data-language-choice="id">
+            <strong>Bahasa Indonesia</strong>
+            <small>Halo, ayo belajar!</small>
+          </button>
+          <button class="language-choice" type="button" data-language-choice="en">
+            <strong>English</strong>
+            <small>Hello, let's learn!</small>
+          </button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="access-dialog" id="accessDialog">
+    <form method="dialog">
+      <div class="dialog-head access-head">
+        <div>
+          <p class="eyebrow" data-i18n="accessEyebrow">Akses User</p>
+          <h2 data-i18n="accessTitle">Manajemen User</h2>
+        </div>
+        <button class="icon-btn" value="close" aria-label="Tutup" type="submit">×</button>
+      </div>
+
+      <div class="access-tabs" role="tablist" aria-label="Manajemen user">
+        <button class="access-tab active" type="button" data-access-tab="login" data-i18n="accessLoginTab">Masuk</button>
+        <button class="access-tab" type="button" data-access-tab="users" data-i18n="accessUserTab">User</button>
+        <button class="access-tab" type="button" data-access-tab="contact" data-i18n="accessContactTab">Kontak Admin</button>
+      </div>
+
+      <div class="access-panel active" data-access-panel="login">
+        <div class="current-user-card">
+          <span aria-hidden="true">🌟</span>
+          <div>
+            <small data-i18n="currentUserLabel">User aktif</small>
+            <strong id="currentUserName">Temanku</strong>
+          </div>
+        </div>
+        <label class="access-field" for="loginUserSelect">
+          <span data-i18n="chooseUserLabel">Pilih user</span>
+          <select id="loginUserSelect"></select>
+        </label>
+        <label class="access-field" for="loginPasswordInput" id="loginPasswordRow">
+          <span data-i18n="passwordLabel">Password</span>
+          <input id="loginPasswordInput" type="password" autocomplete="current-password" placeholder="••••••">
+        </label>
+        <p class="access-note" id="accessMessage" aria-live="polite"></p>
+        <div class="access-actions">
+          <button class="primary-btn" id="loginBtn" type="button" data-i18n="loginAction">Masuk</button>
+          <button class="secondary-btn" id="logoutBtn" type="button" data-i18n="logoutAction">Log out</button>
+        </div>
+      </div>
+
+      <div class="access-panel" data-access-panel="users">
+        <p class="access-note" data-i18n="guestInfo">User tamu bisa melihat menu, tetapi tidak bisa mengerjakan tes.</p>
+        <div class="user-list" id="userList"></div>
+        <div class="admin-only-box" id="addUserBox">
+          <h3 data-i18n="addUserTitle">Tambah User Baru</h3>
+          <div class="access-form-grid">
+            <label class="access-field" for="newUserName">
+              <span data-i18n="newUserNameLabel">Nama user</span>
+              <input id="newUserName" type="text" autocomplete="off" placeholder="Nama anak">
+            </label>
+            <label class="access-field" for="newUserPassword">
+              <span data-i18n="newUserPasswordLabel">Password</span>
+              <input id="newUserPassword" type="password" autocomplete="new-password" placeholder="Boleh dikosongkan untuk tamu">
+            </label>
+            <label class="access-field" for="newUserAccess">
+              <span data-i18n="newUserAccessLabel">Akses</span>
+              <select id="newUserAccess">
+                <option value="full" data-i18n="fullAccessOption">Bisa mengerjakan tes</option>
+                <option value="guest" data-i18n="guestAccessOption">Tamu lihat menu saja</option>
+              </select>
+            </label>
+            <label class="access-field" for="newUserLimitType">
+              <span data-i18n="newUserLimitLabel">Masa akses</span>
+              <select id="newUserLimitType">
+                <option value="permanent" data-i18n="limitPermanentOption">Permanen</option>
+                <option value="days" data-i18n="limitDailyOption">Harian</option>
+                <option value="months" data-i18n="limitMonthlyOption">Bulanan</option>
+              </select>
+            </label>
+            <label class="access-field" for="newUserLimitCount" id="newUserLimitCountRow">
+              <span data-i18n="newUserLimitCountLabel">Jumlah</span>
+              <input id="newUserLimitCount" type="number" min="1" max="365" value="1" inputmode="numeric">
+            </label>
+          </div>
+          <button class="primary-btn" id="addUserBtn" type="button" data-i18n="addUserAction">Tambah User</button>
+        </div>
+      </div>
+
+      <div class="access-panel" data-access-panel="contact">
+        <p class="access-note" data-i18n="contactHelp">Jika butuh akses, hubungi admin lewat WA atau email di bawah ini.</p>
+        <div class="contact-card">
+          <a id="adminWaLink" href="#" target="_blank" rel="noreferrer">WA: -</a>
+          <a id="adminEmailLink" href="#">Email: -</a>
+        </div>
+        <div class="admin-only-box" id="contactEditBox">
+          <h3 data-i18n="contactEditTitle">Isi Kontak Admin</h3>
+          <div class="access-form-grid">
+            <label class="access-field" for="adminWaInput">
+              <span data-i18n="waLabel">Nomor WA</span>
+              <input id="adminWaInput" type="tel" placeholder="62812xxxx">
+            </label>
+            <label class="access-field" for="adminEmailInput">
+              <span data-i18n="emailLabel">Email</span>
+              <input id="adminEmailInput" type="email" placeholder="admin@email.com">
+            </label>
+          </div>
+          <button class="primary-btn" id="saveContactBtn" type="button" data-i18n="saveContactAction">Simpan Kontak</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
